@@ -79,13 +79,22 @@
   </div>
 
   <script>
-  async function updateCounter() {
-    const response = await fetch("/api/counter");
-    const count = await response.text();
-    document.getElementById("visitor-count").innerText = count;
-  }
-  updateCounter();
-</script>
+    async function updateCounter() {
+      try {
+        const response = await fetch("/api/counter");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const count = await response.text();
+        document.getElementById("visitor-counter").innerText = count;
+      } catch (error) {
+        console.error("Failed to fetch visitor count:", error);
+        document.getElementById("visitor-counter").innerText = "N/A";
+      }
+    }
+
+    updateCounter();
+  </script>
 
 </body>
 </html>
