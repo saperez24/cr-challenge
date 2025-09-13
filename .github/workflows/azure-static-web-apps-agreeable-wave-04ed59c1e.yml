@@ -11,21 +11,20 @@ on:
 
 jobs:
   build_and_deploy_job:
-    if: github.event_name != 'pull_request' || github.event.action == 'closed'
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
       - uses: actions/checkout@v3
 
-      # Deploy Static Web App frontend
-      - name: Build And Deploy Frontend
+      # Deploy Static Web App frontend + backend functions
+      - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "/" 
-          api_location: "api" 
-          output_location: "/"
-          app_build_command: "echo 'no build needed'"
+          app_location: "/"        # root folder with index.html
+          api_location: "api"      # folder with Node.js function
+          output_location: "/"     # static files are at root
+          app_build_command: "echo 'no build needed'"  # dummy build command
