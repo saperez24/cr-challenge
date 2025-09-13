@@ -26,13 +26,5 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           app_location: "/" 
-          api_location: ""      # leave empty since API goes to Function App
+          api_location: "api" 
           output_location: ""
-
-      # Deploy Python visitor counter to Function App
-      - name: Deploy Python Function
-        uses: Azure/functions-action@v1
-        with:
-          app-name: "counter-func"              # Your Function App name
-          publish-profile: ${{ secrets.FUNC_PUBLISH_PROFILE }}
-          package: "./api/counter"
