@@ -33,7 +33,6 @@ jobs:
       - name: Deploy Python Function
         uses: Azure/functions-action@v1
         with:
-          app-name: "counter-function"              # Your Function App name
-          slot-name: "production"
+          app-name: "counter-func"              # Your Function App name
           publish-profile: ${{ secrets.FUNC_PUBLISH_PROFILE }}
           package: "./api/counter"
