@@ -2,6 +2,7 @@
 const { TableClient, AzureNamedKeyCredential } = require("@azure/data-tables");
 
 const tableName = "VisitorCounter";
+const partitionKey = "visitor";
 const rowKey = "count";
 const accountName = process.env.TABLE_ACCOUNT_NAME;
 const accountKey = process.env.TABLE_ACCOUNT_KEY;
