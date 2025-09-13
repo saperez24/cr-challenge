@@ -26,6 +26,6 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           app_location: "/" 
-          api_location: "api/counter" 
+          api_location: "api" 
           output_location: "/"
           app_build_command: "echo 'no build needed'"
