@@ -79,20 +79,13 @@
   </div>
 
   <script>
-    // Visitor Counter
-    async function updateVisitorCounter() {
-      try {
-        // Replace URL with your Azure Function endpoint
-        const response = await fetch('https://YOUR_FUNCTION_APP.azurewebsites.net/api/counter');
-        const data = await response.json();
-        document.getElementById('visitor-counter').textContent = data.count || 0;
-      } catch (error) {
-        console.error('Error fetching visitor count:', error);
-        document.getElementById('visitor-counter').textContent = 'N/A';
-      }
-    }
+  async function updateCounter() {
+    const response = await fetch("/api/counter");
+    const count = await response.text();
+    document.getElementById("visitor-count").innerText = count;
+  }
+  updateCounter();
+</script>
 
-    updateVisitorCounter();
-  </script>
 </body>
 </html>
