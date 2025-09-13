@@ -1,7 +1,7 @@
 // counter function for Visitor counter
 const { TableClient, AzureNamedKeyCredential } = require("@azure/data-tables");
 
-const tableName = "Visitors";
+const tableName = "VisitorCounter";
 const accountName = process.env.TABLE_ACCOUNT_NAME;
 const accountKey = process.env.TABLE_ACCOUNT_KEY;
 
