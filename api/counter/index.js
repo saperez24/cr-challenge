@@ -1,4 +1,3 @@
-// counter function for Visitor counter
 const { TableClient, AzureNamedKeyCredential } = require("@azure/data-tables");
 
 const tableName = "VisitorCounter";

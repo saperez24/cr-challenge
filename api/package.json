@@ -1,7 +1,10 @@
 {
-  "name": "counter",
+  "name": "api",
   "version": "1.0.0",
   "dependencies": {
     "@azure/data-tables": "^13.1.0"
+  },
+  "scripts": {
+    "build": "echo 'no build needed'"
   }
 }
